@@ -76,8 +76,14 @@ axios
      <h1>Create a single NFT</h1>
      <h2>Upload files</h2>
      <h3>Upload all files you want to mint</h3>
-     <img src={data.img} alt="" />
-     <input type="file" onChange={(e) => add_img(e)} required={true}/>
+
+     <div className={style.img}>
+      <img src={data.img} alt=""  className={style.img1}/>
+      {data.img === "" 
+      ?<input type="file" onChange={(e) => add_img(e)} required={true}/> 
+      : <button onClick={() => setData({...data,["img"]:""})}>X</button>}
+     </div>
+
      <div className={style.linea}></div>
      <h2>Token details</h2>
      <p>
@@ -97,6 +103,5 @@ axios
      
       <button >Create NFT</button> 
     </form>
-    // <button onClick={() => create_nft()}>Create NFT</button>
     )
 }
