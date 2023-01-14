@@ -32,16 +32,16 @@ export default function NFT () {
   }
 };
 
-console.log(`email:${data.gmail}:solana`)
+console.log(data)
 
-// axios
-//   .request(options)
-//   .then(function (response) {
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     console.error(error);
-//   });
+axios
+  .request(options)
+  .then(function (response) {
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
 
 }
     const add_img = async (e) => {
