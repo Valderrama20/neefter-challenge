@@ -43,7 +43,7 @@ export default function NFT() {
           icon: 'success',
           text: 'Your NFT was successfully created'
         })
-       location.reload()
+        window.location.reload()
       })
       .catch(function (error) {
         console.error(error);
