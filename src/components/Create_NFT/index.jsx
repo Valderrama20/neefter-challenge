@@ -6,8 +6,8 @@ import Swal from 'sweetalert2'
 
 
 export default function NFT() {
-
-  const [data, setData] = useState({ name: "", description: "", img: "", key: "", value: "", gmail: "" })
+    const NFTS = { name: "", description: "", img: "", key: "", value: "", gmail: "" }
+  const [data, setData] = useState(NFTS)
   const set_data = (e) => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
@@ -43,7 +43,7 @@ export default function NFT() {
           icon: 'success',
           text: 'Your NFT was successfully created'
         })
-        window.location.reload()
+          setData(NFTS)
       })
       .catch(function (error) {
         console.error(error);
@@ -94,7 +94,7 @@ export default function NFT() {
           ? <div>
             <img src="https://res.cloudinary.com/dlwurkglp/image/upload/v1673785967/image_hbiegp.png" alt="" className={style.img_add} />
             <p>Click below to browse</p>
-            <div class={style.file_select} id={style.src_file1} onChange={(e) => add_img(e)} required={true} >
+            <div className={style.file_select} id={style.src_file1} onChange={(e) => add_img(e)} required={true} >
               <input type="file" name="src-file1" aria-label="Archivo" />
             </div>
           </div>
@@ -109,17 +109,18 @@ export default function NFT() {
         The email where you want the NFT to be sent and some property of it
       </p>
       <div className={style.input1}>
-        <input type="text" placeholder="Name" name="name" onChange={(e) => set_data(e)} required={true} />
-        <input type="text" placeholder="Description" name="description" onChange={(e) => set_data(e)} required={true} />
-        <input type="email" placeholder="gmail" name="gmail" onChange={(e) => set_data(e)} required={true} />
+        <input type="text" placeholder="Name" name="name" onChange={(e) => set_data(e)} required={true} value={data.name}/>
+        <input type="text" placeholder="Description" name="description" onChange={(e) => set_data(e)} required={true} value={data.description} />
+        <input type="email" placeholder="gmail" name="gmail" onChange={(e) => set_data(e)} required={true} value={data.gmail}/>
       </div>
       <label htmlFor="">Property</label>
       <div className={style.input2}>
-        <input type="text" placeholder="Key" name="key" onChange={(e) => set_data(e)} required={true} />:
-        <input type="text" placeholder="Value" name="value" onChange={(e) => set_data(e)} required={true} />
+        <input type="text" placeholder="Key" name="key" onChange={(e) => set_data(e)} required={true} value={data.key}/>:
+        <input type="text" placeholder="Value" name="value" onChange={(e) => set_data(e)} required={true} value={data.value}/>
       </div>
 
       <button className={style.crear} disabled={data.img === "" ? true : false}>Create NFT</button>
+      
     </form>
   )
 }
