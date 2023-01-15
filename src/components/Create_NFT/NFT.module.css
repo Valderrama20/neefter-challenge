@@ -58,3 +58,77 @@
 .img1 {
     width: 200px;
 }
+
+.img_add{
+    width: 100px;
+    margin-bottom: -30px;
+}
+.img div{
+    text-align: center;
+}
+
+.img button{
+    background-color: red;
+    color: white;
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    
+}
+
+
+
+
+.file_select {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  .file_select::before {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    content: 'Add File'; /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  
+  .file_select input[type="file"] {
+    opacity: 0;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    cursor: pointer;
+  }
+  
+  #src-file1::before {
+    content: 'Seleccionar Archivo 1';
+  }
+.crear{
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    padding: 10px 100px;
+    margin: 10px 300px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.crear:hover{
+    border-radius: 0;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+}
+
+
+  

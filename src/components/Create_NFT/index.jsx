@@ -2,6 +2,7 @@ import fetch from "node-fetch"
 import axios from 'axios';
 import { useState } from "react";
 import style from "./NFT.module.css"
+import Swal from 'sweetalert2'
 
 
 export default function NFT () {
@@ -37,10 +38,18 @@ console.log(data)
 axios
   .request(options)
   .then(function (response) {
-    console.log(response.data);
+    Swal.fire({
+      icon: 'success',
+      text: 'Your NFT was successfully created'
+    })
   })
   .catch(function (error) {
     console.error(error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Something wrong happened, please try again'
+    })
   });
 
 }
@@ -80,7 +89,13 @@ axios
      <div className={style.img}>
       <img src={data.img} alt=""  className={style.img1}/>
       {data.img === "" 
-      ?<input type="file" onChange={(e) => add_img(e)} required={true}/> 
+      ?<div>
+        <img src="https://res.cloudinary.com/dlwurkglp/image/upload/v1673785967/image_hbiegp.png" alt="" className={style.img_add}/>
+           <p>Click below to browse</p>
+           <div class={style.file_select} id={style.src_file1} onChange={(e) => add_img(e)} required={true} >
+         <input type="file" name="src-file1" aria-label="Archivo"/>
+           </div>
+      </div>
       : <button onClick={() => setData({...data,["img"]:""})}>X</button>}
      </div>
 
@@ -88,20 +103,21 @@ axios
      <h2>Token details</h2>
      <p>
         the "Display name" and "Description" will be show in wallets or on marketplaces,
-         where the NFT is displayed. This information is also store on the blockchain
+         where the NFT is displayed. This information is also store on the blockchain. 
+         The email where you want the NFT to be sent and some property of it
          </p>
          <div className={style.input1}>
       <input type="text" placeholder="Name" name="name" onChange={(e)=>set_data(e)} required={true}/>
       <input type="text" placeholder="Description" name="description" onChange={(e)=>set_data(e)} required={true}/>
       <input type="email" placeholder="gmail" name="gmail" onChange={(e)=>set_data(e)} required={true}/>
          </div>
-         <label htmlFor="">Propertis</label>
+         <label htmlFor="">Property</label>
       <div className={style.input2}>
       <input type="text" placeholder="Key" name="key" onChange={(e)=>set_data(e)} required={true}/>:
       <input type="text" placeholder="Value" name="value" onChange={(e)=>set_data(e)} required={true}/>
       </div>
      
-      <button >Create NFT</button> 
+      <button className={style.crear} disabled={data.img === ""? true:false}>Create NFT</button> 
     </form>
     )
 }
