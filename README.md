@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+#Neefter Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App para mintear un NFT utilizando Crossmint y Claudinary para almacenar las img
 
-## Available Scripts
+## Uso de la App
 
-In the project directory, you can run:
+Para mintear un NFT cargar una img y rellenar los datos requeridos, recuerda agregar un Email al cual desea que se envie su NFT. Para Tener mas detalles de tu NFT \
+crear una cuenta en [Crossmint](https://www.crossmint.com/) y entrar en `My Wallet` ahi podras observar cada NFT creado `Puede Tardar un poco para poder visualizar el NFT` \
+
 
 ### `npm start`
 
